@@ -1,0 +1,103 @@
+% -------------------------------------------------
+% Modified from latex template of IEEE CVPR
+% -------------------------------------------------
+%\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\setenumerate[1]{itemsep=0pt,parsep=0pt,topsep=5pt}
+\setitemize[1]{itemsep=0pt,parsep=0pt,topsep=5pt}
+
+\pagestyle{empty}
+\thispagestyle{empty}
+
+
+\setlength{\parindent}{24pt}   %缩进
+
+% 标题颜色
+\newcommand{\alert}[1]{\textcolor[rgb]{0.0625,0.4453,0.7383}{#1}}
+
+\newcommand{\NsfcNote}[1]{\large\emph{\alert{#1}}}
+
+% 定义大标题
+\newcounter{LargeContentDes}
+\newcommand{\LargeContentDes}[1]{
+     \vskip 12pt
+     \stepcounter{LargeContentDes} 
+     \setcounter{section}{0}
+    { \large\bf{\alert{(\theLargeContentDes)#1}} }%   
+}
+\renewcommand\theLargeContentDes{\chinese{LargeContentDes}} 
+\titleformat{\LargeContentDes}{\large\bf}{\theLargeContentDes\enspace}{24pt}{}
+\titlespacing*{\LargeContentDes}{24pt}{+6pt}{+0pt}
+
+% 定义大标题(不计数)
+\newcommand{\LargeContentDesWithoutNo}[1]{
+    { \large\bf{\alert{#1}} }%   
+}
+
+%定义二标题
+\newcommand{\ContentDes}[2]{
+     \vskip 6pt
+     \stepcounter{section} 
+     {\large\bf{\alert{\thesection. #1}}}
+     {\NsfcNote{#2}}
+}
+\titleformat{\section}{\large\bf}{\thesection.\enspace}{24pt}{}
+\titlespacing{\section}{24pt}{+0pt}{+0pt}
+
+%定义二标题, 无粗体
+\newcommand{\ContentDesSmall}[1]{
+     \stepcounter{section} 
+     {\NsfcNote{\thesection. #1}}
+}
+%\titleformat{\ContentDesSmall}{\large\bf}{\theContentDesSmall.\enspace}{0pt}{}
+%\titlespacing{\ContentDesSmall}{12pt}{+0pt}{+0pt}
+
+%定义三标题
+\titleformat{\subsection}{\bf}{\thesubsection.\enspace}{0pt}{}
+\titlespacing{\subsection}{24pt}{+0pt}{+0pt}
+
+% 定义段间距
+\setlength{\parskip}{0.4\baselineskip}
+
+% memento from size10.clo
+\large{\@setfontsize\large\@xiipt{14}}
+\large{\@setfontsize\large\@xivpt{18}}
+\large{\@setfontsize\large\@xviipt{22}}
+\huge{\@setfontsize\huge\@xxpt{25}}
+
+\def\@maketitle{ %\newpage \null \vskip .01in
+   \begin{center} {\Large\bf\@title\par} \end{center}
+}
+
+
+% correct heading spacing and type
+%\def\cvprsection{\@startsection {section}{1}{\z@}
+ %  {12pt plus 2pt minus 2pt}{7pt} {\large\bf}}
+%\def\cvprssect#1{\cvprsection{#1}}
+%\def\cvprsect#1{\cvprsection{\hskip 24pt.~#1}}
+%\def\section{\@ifstar\cvprssect\cvprsect}
+%\def\section{\setlength{\parindent}{24pt}\LaTeXsection}
+
+%\def\cvprsubsection{\@startsection {subsection}{2}{\z@}
+ %  {12pt plus 2pt minus 2pt}{6pt} {\bf}}
+%\def\cvprssubsect#1{\cvprsubsection*{#1}}
+%\def\cvprsubsect#1{\cvprsubsection{\hskip 24pt.~#1}}
+%\def\subsection{\@ifstar\cvprssubsect\cvprsubsect}
+%\def\subsection{\setlength{\parindent}{24pt}\LaTeXsubsection}
+
+%%% Make figure placement a little more predictable.
+% We trust the user to move figures if this results in ugliness.
+% Minimize bad page breaks at figures
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\topfraction}{0.99}
+\renewcommand{\bottomfraction}{0.99}
+\renewcommand{\dblfloatpagefraction}{0.99}
+\renewcommand{\dbltopfraction}{0.99}
+\setcounter{totalnumber}{99}
+\setcounter{topnumber}{99}
+\setcounter{bottomnumber}{99}
+
+
+% ---------------------------------------------------------------
